@@ -62,6 +62,13 @@
     create {{ item.create.mode }} {{ item.create.owner }} {{ item.create.group }}
     {% endif -%}
 
+    {% if item.date_extension is defined -%}
+    dateext
+    {% if item.date_extension.date_format is defined -%}
+    dateformat {{item.date_extension.date_format}} 
+    {% endif -%}
+    {% endif -%}
+
     {% if item.old_directory is defined -%}
     olddir {{ item.old_directory }}
     {% endif -%}
